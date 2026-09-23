@@ -9,7 +9,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-[1500px] items-center justify-between px-5 md:px-10 lg:h-28 lg:px-24">
+      <div className="mx-auto flex h-20 w-full max-w-1500px items-center justify-between px-5 md:px-10 lg:h-28 lg:px-24">
         <a href="#top" className="leading-tight">
           <span className="block font-display text-2xl font-light text-ink lg:text-4xl">{site.name}</span>
           <span className="mt-1 block text-[10px] uppercase tracking-[0.3em] text-primary lg:text-[11px]">{site.tagline}</span>

@@ -15,7 +15,7 @@ export default function Intro() {
             <p className="text-[17px] leading-8 text-ink/85 md:pt-[4.2rem]">{intro.body[1]}</p>
           </div>
         </div>
-        <Photo {...intro.image} className="mt-14 aspect-[3/4] lg:mt-24 lg:aspect-auto lg:min-h-[520px]" />
+        <Photo {...intro.image} className="mt-14 aspect-3/4 lg:mt-24 lg:aspect-auto lg:min-h-520px" />
       </div>
     </section>
   );

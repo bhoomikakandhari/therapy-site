@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-// Tracked uppercase label (used in the original for eyebrows & lead-ins)
+
 export function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return <p className={`text-[13px] uppercase leading-7 tracking-[0.2em] ${light ? "text-white/85" : "text-ink/80"}`}>{children}</p>;
 }
 
-// Handwritten script accent inside headings (signature of the original)
+
 export function Accent({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return <span className={`font-script text-[1.7em] leading-none ${light ? "text-accent" : "text-primary"}`}>{children}</span>;
 }
 
-// Underlined tracked text link – the original's CTA style
+
 export function TextLink({ href, children, light = false }: { href: string; children: React.ReactNode; light?: boolean }) {
   return (
     <a
@@ -24,7 +24,7 @@ export function TextLink({ href, children, light = false }: { href: string; chil
   );
 }
 
-// Outlined oval button (original uses this for "Contact" and "Book now")
+
 export function PillLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
@@ -36,7 +36,7 @@ export function PillLink({ href, children }: { href: string; children: React.Rea
   );
 }
 
-// Square-cornered image; light plum tint keeps every picture inside the palette.
+
 export function Photo({ src, alt, className = "", priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) {
   return (
     <div className={`relative overflow-hidden bg-secondary ${className}`}>

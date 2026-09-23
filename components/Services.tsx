@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <section id="services" className="py-16 lg:py-28">
       <div className="grid lg:grid-cols-[52%_1fr]">
-        <Photo {...services.image} className="aspect-[4/3] lg:aspect-auto lg:min-h-[620px]" />
+        <Photo {...services.image} className="aspect-4/3 lg:aspect-auto lg:min-h-620px" />
         <div className="flex items-end px-5 py-10 md:px-10 lg:px-16 lg:pb-16">
           <h2 className="font-display text-4xl font-light leading-[1.2] lg:text-5xl">
             {services.introLead} <Accent>&amp;</Accent> {services.introTail}

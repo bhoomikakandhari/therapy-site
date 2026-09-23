@@ -1,7 +1,7 @@
 import { Eyebrow, Accent, Photo } from "./ui";
 import { office } from "@/lib/content";
 
-/* NEW SECTION "Our Office": same type system, square images, tracked labels and section padding as the rest of the site */
+
 export default function Office() {
   const [a, b, c] = office.images;
   return (
@@ -18,14 +18,14 @@ export default function Office() {
         {/* adapts to 2 or 3 photos */}
         {c ? (
           <div className="mt-14 grid gap-4 md:grid-cols-3 md:grid-rows-2 lg:mt-20">
-            <Photo {...a} className="aspect-[4/3] md:col-span-2 md:row-span-2 md:aspect-auto md:min-h-[28rem]" />
-            <Photo {...b} className="aspect-[4/3]" />
-            <Photo {...c} className="aspect-[4/3]" />
+            <Photo {...a} className="aspect-4/3 md:col-span-2 md:row-span-2 md:aspect-auto md:min-h-28rem" />
+            <Photo {...b} className="aspect-4/3" />
+            <Photo {...c} className="aspect-4/3" />
           </div>
         ) : (
           <div className="mt-14 grid gap-4 md:grid-cols-2 lg:mt-20">
-            <Photo {...a} className="aspect-[4/3]" />
-            <Photo {...b} className="aspect-[4/3]" />
+            <Photo {...a} className="aspect-4/3" />
+            <Photo {...b} className="aspect-4/3" />
           </div>
         )}
 

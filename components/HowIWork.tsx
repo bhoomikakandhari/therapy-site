@@ -16,7 +16,7 @@ export default function HowIWork() {
           </div>
           <div className="mt-14"><TextLink href={how.link.href}>{how.link.label}</TextLink></div>
         </div>
-        <Photo {...how.image} className="mt-14 aspect-[4/5] lg:mt-0 lg:mr-8 lg:aspect-[4/5]" />
+        <Photo {...how.image} className="mt-14 aspect-4/5 lg:mt-0 lg:mr-8 lg:aspect-4/5" />
       </div>
     </section>
   );

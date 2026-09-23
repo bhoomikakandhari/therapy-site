@@ -38,7 +38,7 @@ export default function BookingForm() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Demo only: in a live site, send the form data to a service (e.g. Formspree) here.
+    
     setSent(true);
   }
 

@@ -1,6 +1,6 @@
 import { faqs } from "@/lib/content";
 
-// Native <details> = accessible accordion, zero JavaScript
+
 export default function FAQ() {
   return (
     <section id="faqs" className="py-16 lg:py-28">
