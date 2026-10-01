@@ -35,11 +35,38 @@ function Select({ id, options }: { id: string; options: string[] }) {
 
 export default function BookingForm() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    
-    setSent(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      first: (form.elements.namedItem("first") as HTMLInputElement).value,
+      last: (form.elements.namedItem("last") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      format: (form.elements.namedItem("format") as HTMLSelectElement).value,
+      heard: (form.elements.namedItem("heard") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Something went wrong. Please try again.");
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (sent) {
@@ -94,11 +121,14 @@ export default function BookingForm() {
         <textarea id="message" name="message" rows={4} className={box} />
       </div>
 
+      {error && <p className="text-sm text-red-700">{error}</p>}
+
       <button
         type="submit"
-        className="rounded-full border border-primary bg-primary px-10 py-4 text-[13px] uppercase tracking-[0.2em] text-white transition hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        disabled={loading}
+        className="rounded-full border border-primary bg-primary px-10 py-4 text-[13px] uppercase tracking-[0.2em] text-white transition hover:bg-primary-dark disabled:opacity-50"
       >
-        Request a consultation
+        {loading ? "Sending..." : "Request a consultation"}
       </button>
 
       <p className="text-sm leading-6 text-ink/70">
